@@ -189,7 +189,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={2301.8167,12.694928,5543.5322};
+					position[]={1856.7538,5.5253658,5752.6387};
 					class args
 					{
 						items=6;
@@ -201,7 +201,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="0";
+							value="1";
 							parentCls="ACE_ModuleSwitchUnits";
 							typeName="SwitchToEast";
 						};
@@ -225,7 +225,7 @@ class Mission
 						};
 						class Item5
 						{
-							value="100";
+							value="50";
 							parentCls="ACE_ModuleSwitchUnits";
 							typeName="SafeZoneRadius";
 						};
