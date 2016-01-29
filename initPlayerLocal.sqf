@@ -1,5 +1,7 @@
+diag_log "initPlayerLocal.sqf";
+diag_log str(name player);
+/*
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
-
 
 waituntil {!isnil "bis_fnc_init"};
 waitUntil {!isNull player};
@@ -36,3 +38,4 @@ player addEventHandler ["Killed",{
     [player] joinSilent dummyGroupEast;
     player removeEventHandler ["killed", 0];
 }];
+*/

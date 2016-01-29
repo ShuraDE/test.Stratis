@@ -9,6 +9,7 @@ if(isServer) then {
 };
 waitUntil{S_INIT};
 
+diag_log "init.sqf";
 /////// Start
 
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
@@ -20,7 +21,8 @@ if (isServer) then {
 
 if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
 
-  diag_log "player is s1 or s2";
+  diag_log "init.sqf => player is s1 or s2";
+  diag_log str(name player);
 
 	//define "LOADOUT_EAST" loadout array's
 	script_handler = [] spawn compile preprocessFileLineNumbers "loadout_opfor.sqf";
