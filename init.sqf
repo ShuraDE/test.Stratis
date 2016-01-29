@@ -13,17 +13,18 @@ waitUntil{S_INIT};
 /////// Start
 
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
+GA_DEBUG = compile preprocessFileLineNumbers "debug.sqf";
 
 if (isServer) then {
   dummyGroupEast = createGroup east;
   publicVariable "dummyGroupEast";
-  "isServer"  call BIS_fnc_log;
+  "isServer"  call GA_DEBUG;
 };
 
 if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
 
-  "init.sqf => player is s1 or s2" call BIS_fnc_log;
-  str(name player) call BIS_fnc_log;
+  "init.sqf => player is s1 or s2" call GA_DEBUG;
+  str(name player) call GA_DEBUG;
 
 	//define "LOADOUT_EAST" loadout array's
 	script_handler = [] spawn compile preprocessFileLineNumbers "loadout_opfor.sqf";
