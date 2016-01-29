@@ -1,6 +1,15 @@
 waituntil {!isnil "bis_fnc_init"};
-waitUntil {!isNull player};
+S_INIT = false;
+S_CLIENT = false;
 
+if(isServer) then {
+    S_INIT = true;
+} else {
+	S_CLIENT = true;if(isNull player)then{[] spawn {waitUntil {!isNull player};S_INIT = true;}} else {S_INIT = true;};  	// erst wenn Player auf Karte wird init.sqf weitergelden
+};
+waitUntil{S_INIT};
+
+/////// Start
 
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
 
@@ -9,7 +18,7 @@ if (isServer) then {
   publicVariable "dummyGroupEast";
 };
 
-if (player == s1 || player ==  s2) then {
+if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
 
   diag_log "player is s1 or s2";
 
