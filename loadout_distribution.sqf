@@ -12,11 +12,11 @@ IN: _unit 		= player or ki men
 
 
 //params
-_backbackMark = 2; //value 0-10,  					x > (random 10) == add backpack (at & ar get alway one)
-_goggleMark = 9;  //value 0-10,   					x > (random 10) == add google / beard
-_weaponMarkAttachment = 7; //value 0-10, 		x > (random 10) == add attachment
-_weaponMark2ndAmmo = 6; //value 0-10,  			x > (random 10) == add ammo from secondary ammo array
-_weaponMarkGL = 2; //value 0-10,  					x > (random 10) == add GL weapon instead default
+_backbackMark = 4; //value 0-10   (value > (random 10)) => { true; }
+_goggleMark = 9;  //value 0-10
+_weaponMarkAttachment = 3; //value 0-10
+_weaponMark2ndAmmo = 6; //value 0-10
+_weaponMarkGL = 2; //value 0-10
 
 
 //function params
@@ -58,7 +58,7 @@ removeGoggles _unit;
 
 //// INV Helpers
 _fortuity = {
-	if (_this < (random 10)) then { true; } else { false; };
+	if (_this > (random 10)) then { true; } else { false; };
 };
 
 _addItems = {
@@ -94,7 +94,6 @@ _addWeaponToUnit = {
 
 	//add weapon with attachment
 	_unit addWeapon _weapon;
-	hint format["%1\n%2", getText(configFile >> "CfgVehicles" >> _weapon >> "vehicleClass"), _weapon];
 	if (count _attachments > 0 && _weaponMarkAttachment call _fortuity) then {
 		switch (getText(configFile >> "CfgVehicles" >> _weapon >> "vehicleClass")) do {
 			case "WeaponsPrimary": { _unit addPrimaryWeaponItem (_attachments call BIS_fnc_selectRandom); };
@@ -131,7 +130,7 @@ if (_armed > 0) then {
 			[_rnd_weapon_primary call BIS_fnc_selectRandom] call _addWeaponToUnit;
 		} else {
 			//anyone else gets regular weapon or with a chance a better one (gl what ever)
-			[(if (_weaponMarkGL call _fortuity) then { _rnd_weapon_primary } else { _rnd_weapon_primary_gl })
+			[(if (_weaponMarkGL call _fortuity) then { _rnd_weapon_primary_gl } else { _rnd_weapon_primary })
 			 					call BIS_fnc_selectRandom] call _addWeaponToUnit;
 		};
 	};

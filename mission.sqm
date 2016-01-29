@@ -189,7 +189,56 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={1856.7538,5.5253658,5752.6387};
+					position[]={1885.3373,5.5033431,5630.4736};
+					class args
+					{
+						items=4;
+						class Item0
+						{
+							value="s2";
+							parentCls="ModuleCurator_F";
+							typeName="Owner";
+						};
+						class Item1
+						{
+							value="";
+							parentCls="ModuleCurator_F";
+							typeName="Name";
+						};
+						class Item2
+						{
+							value="2";
+							parentCls="ModuleCurator_F";
+							typeName="Addons";
+						};
+						class Item3
+						{
+							value="0";
+							parentCls="ModuleCurator_F";
+							typeName="Forced";
+						};
+					};
+					id=7;
+					side="LOGIC";
+					vehicle="ModuleCurator_F";
+					leader=1;
+					lock="UNLOCKED";
+					skill=0.60000002;
+					text="GM02";
+					syncId=3;
+					synchronizations[]={2};
+				};
+			};
+		};
+		class Item5
+		{
+			side="LOGIC";
+			class Vehicles
+			{
+				items=1;
+				class Item0
+				{
+					position[]={1876.4006,5.6610017,5761.1523};
 					class args
 					{
 						items=6;
@@ -225,66 +274,17 @@ class Mission
 						};
 						class Item5
 						{
-							value="50";
+							value="100";
 							parentCls="ACE_ModuleSwitchUnits";
 							typeName="SafeZoneRadius";
 						};
 					};
-					id=7;
+					id=8;
 					side="LOGIC";
 					vehicle="ACE_ModuleSwitchUnits";
 					leader=1;
 					lock="UNLOCKED";
 					skill=0.60000002;
-				};
-			};
-		};
-		class Item5
-		{
-			side="LOGIC";
-			class Vehicles
-			{
-				items=1;
-				class Item0
-				{
-					position[]={1885.3373,5.5033431,5630.4736};
-					class args
-					{
-						items=4;
-						class Item0
-						{
-							value="s2";
-							parentCls="ModuleCurator_F";
-							typeName="Owner";
-						};
-						class Item1
-						{
-							value="";
-							parentCls="ModuleCurator_F";
-							typeName="Name";
-						};
-						class Item2
-						{
-							value="2";
-							parentCls="ModuleCurator_F";
-							typeName="Addons";
-						};
-						class Item3
-						{
-							value="0";
-							parentCls="ModuleCurator_F";
-							typeName="Forced";
-						};
-					};
-					id=8;
-					side="LOGIC";
-					vehicle="ModuleCurator_F";
-					leader=1;
-					lock="UNLOCKED";
-					skill=0.60000002;
-					text="GM02";
-					syncId=3;
-					synchronizations[]={2};
 				};
 			};
 		};
