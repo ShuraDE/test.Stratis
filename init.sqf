@@ -9,9 +9,12 @@ if(isServer) then {
 };
 waitUntil{S_INIT};
 
+//load srv first !
+GA_DEBUG_SRV = compile preprocessFileLineNumbers "debug.sqf";
+GA_DEBUG = compile preprocessFileLineNumbers "debug_local.sqf";
 
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
-GA_DEBUG = compile preprocessFileLineNumbers "debug.sqf";
+
 
 
 "init.sqf" call GA_DEBUG;
