@@ -9,7 +9,7 @@ if(isServer) then {
 };
 waitUntil{S_INIT};
 
-diag_log "init.sqf";
+"init.sqf" call BIS_fnc_log;
 /////// Start
 
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
@@ -17,12 +17,13 @@ GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
 if (isServer) then {
   dummyGroupEast = createGroup east;
   publicVariable "dummyGroupEast";
+  "isServer"  call BIS_fnc_log;
 };
 
 if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
 
-  diag_log "init.sqf => player is s1 or s2";
-  diag_log str(name player);
+  "init.sqf => player is s1 or s2" call BIS_fnc_log;
+  str(name player) call BIS_fnc_log;
 
 	//define "LOADOUT_EAST" loadout array's
 	script_handler = [] spawn compile preprocessFileLineNumbers "loadout_opfor.sqf";
@@ -35,9 +36,6 @@ if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
   _unit = (_this select 1);
 
 	  if (_unit isKindOf "Man") then {
-  		//make unit switchable
-  		addSwitchableUnit _unit;
-
   		//loadout distribution
   		switch (side _unit) do {
   			case EAST: { [_unit, LOADOUT_EAST, 1] spawn GA_LOADOUT; };
@@ -45,8 +43,4 @@ if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
   		};
 	  };
 	}];
-};
-
-if (player) then {
-  player setVariable ["ACE_CanSwitchUnits", true];
 };

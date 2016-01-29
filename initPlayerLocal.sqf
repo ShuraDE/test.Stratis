@@ -1,5 +1,5 @@
-diag_log "initPlayerLocal.sqf";
-diag_log str(name player);
+"initPlayerLocal.sqf" call BIS_fnc_log;
+str(name player) call BIS_fnc_log;
 /*
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
 
