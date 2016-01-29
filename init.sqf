@@ -9,16 +9,19 @@ if(isServer) then {
 };
 waitUntil{S_INIT};
 
-"init.sqf" call BIS_fnc_log;
-/////// Start
 
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
 GA_DEBUG = compile preprocessFileLineNumbers "debug.sqf";
 
+
+"init.sqf" call GA_DEBUG;
+"init.sqf" call BIS_fnc_log;
+/////// Start
+
 if (isServer) then {
   dummyGroupEast = createGroup east;
   publicVariable "dummyGroupEast";
-  "isServer"  call GA_DEBUG;
+  "isServer" call GA_DEBUG;
 };
 
 if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
@@ -45,3 +48,6 @@ if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
 	  };
 	}];
 };
+
+"init done" call GA_DEBUG;
+"init done" call BIS_fnc_log;

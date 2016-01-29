@@ -1,19 +1,18 @@
 private ["_caller","_output"];
 
-if (isNil "DEBUG_OUTPUT" || !DEBUG_OUTPUT) exitWith {};
+//if (isNil "DEBUG_OUTPUT" || !DEBUG_OUTPUT) exitWith {};
 
-
-if (!(isServer)) then exitWith {
-  if (player) then {
-    _caller = name player;
-  } else {
+if (!isServer) exitWith {
+  if (isNull player) then {
     _caller = "no pl/srv";
+  } else {
+    _caller = name player;
   };
   [[_caller, _this],"GA_DEBUG",false,false] call BIS_fnc_MP;
 };
 
 
-if (typeName _this == "ARRAY" && count _this == 2) then {
+if ((typeName _this) == "ARRAY" && (count _this) == 2) then {
   _output = _this select 0;
   _caller = _this select 1;
 } else {
@@ -21,7 +20,4 @@ if (typeName _this == "ARRAY" && count _this == 2) then {
   _caller = "server";
 };
 
-
-if (!isNil "DEBUG_OUTPUT" && DEBUG_TYPE_HINT) then {hintSilent format ["debug: %1", _msg];};
-if (!isNil "DEBUG_TYPE_CHAT" && DEBUG_TYPE_CHAT) then {systemChat format ["debug: %1", _msg];};
-if (!isNil "DEBUG_TYPE_LOG" && DEBUG_TYPE_CHAT) then {diag_log format ["debug: %1", _msg]};
+diag_log format ["DEBUG %1 : %2", _caller, _output];
