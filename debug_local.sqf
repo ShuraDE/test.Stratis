@@ -8,7 +8,7 @@ if (isServer) then {
   //server output
   (format ["DEBUG SERVER : %1", _output]) call BIS_fnc_log;
 } else {
-  //client output
+  //client output to local log
   (format ["DEBUG LOCAL : %1", _output]) call BIS_fnc_log;
 
   if (isNull player) then {

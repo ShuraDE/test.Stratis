@@ -9,17 +9,17 @@ class CfgFunctions
 		class SYS
 		{
 			class DEBUG_SRV {
-        file = "debug.sqf";
-        postInit  = 1;
-        recompile = 1;
-        headerType = -1;
-      };
-      class DEBUG {
-        file = "debug_local.sqf";
-        postInit  = 1;
-        recompile = 1;
-        headerType = -1;
-      };
+				file = "debug.sqf";
+				postInit  = 1;
+				recompile = 1;
+				headerType = -1;
+			};
+			class DEBUG {
+				file = "debug_local.sqf";
+				postInit  = 1;
+				recompile = 1;
+				headerType = -1;
+		  };
 		};
 	};
 };
