@@ -9,28 +9,23 @@ if(isServer) then {
 };
 waitUntil{S_INIT};
 
-//load srv first !
-GA_DEBUG_SRV = compile preprocessFileLineNumbers "debug.sqf";
-GA_DEBUG = compile preprocessFileLineNumbers "debug_local.sqf";
-
 GA_LOADOUT = compile preprocessFileLineNumbers "loadout_distribution.sqf";
 
 
+"init.sqf" call GA_fnc_DEBUG;
 
-"init.sqf" call GA_DEBUG;
-"init.sqf" call BIS_fnc_log;
 /////// Start
 
 if (isServer) then {
   dummyGroupEast = createGroup east;
   publicVariable "dummyGroupEast";
-  "isServer" call GA_DEBUG;
+  "isServer" call GA_fnc_DEBUG;
 };
 
 if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
 
-  "init.sqf => player is s1 or s2" call GA_DEBUG;
-  str(name player) call GA_DEBUG;
+  "init.sqf => player is s1 or s2" call GA_fnc_DEBUG;
+  str(name player) call GA_fnc_DEBUG;
 
 	//define "LOADOUT_EAST" loadout array's
 	script_handler = [] spawn compile preprocessFileLineNumbers "loadout_opfor.sqf";
@@ -52,5 +47,4 @@ if ((local s1 && isPlayer s1) || (local s2 && isPlayer s2)) then {
 	}];
 };
 
-"init done" call GA_DEBUG;
-"init done" call BIS_fnc_log;
+"init done" call GA_fnc_DEBUG;

@@ -1,4 +1,4 @@
-"initServer.sqf" call BIS_fnc_log;
+"initServer.sqf" call GA_fnc_DEBUG;
 /*
 dummyGroupEast = createGroup east;
 publicVariable "dummyGroupEast";
